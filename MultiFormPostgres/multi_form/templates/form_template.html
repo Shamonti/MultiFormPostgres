@@ -19,50 +19,39 @@
     <div class="container">
       <form method="post">
         {% csrf_token %}
-        <div class="mb-3">
-          <label for="name" class="form-label">Name</label>
-          <input type="name" class="form-control" id="name" name="name" />
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="email" name="email" />
-        </div>
-        <div class="mb-3">
-          <label for="phone" class="form-label">Phone</label>
-          <input type="phone" class="form-control" id="phone" name="phone" />
-        </div>
-        <div class="mb-3">
-          <label for="address" class="form-label">Address</label>
-          <input
-            type="address"
-            class="form-control"
-            id="address"
-            name="address"
-          />
+        <div class="form-group pt-5" id="form-group-container">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="name" class="form-control" id="name" name="name" />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" />
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="phone" class="form-control" id="phone" name="phone" />
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <input
+              type="address"
+              class="form-control"
+              id="address"
+              name="address"
+            />
+          </div>
         </div>
 
-        <div class="mb-3">
-          <label for="name" class="form-label">Name</label>
-          <input type="name" class="form-control" id="name" name="name" />
+        <button type="button" class="btn btn-primary" id="add-form-group">
+          ADD
+        </button>
+
+        <div class="row">
+          <div class="offset-md-10 col-md-2 d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
         </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="email" name="email" />
-        </div>
-        <div class="mb-3">
-          <label for="phone" class="form-label">Phone</label>
-          <input type="phone" class="form-control" id="phone" name="phone" />
-        </div>
-        <div class="mb-3">
-          <label for="address" class="form-label">Address</label>
-          <input
-            type="address"
-            class="form-control"
-            id="address"
-            name="address"
-          />
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
 
@@ -73,6 +62,68 @@
       crossorigin="anonymous"
     ></script>
 
-    <script></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const addButton = document.getElementById('add-form-group');
+        const formGroupContainer = document.getElementById(
+          'form-group-container'
+        );
+
+        addButton.addEventListener('click', function () {
+          const newFormGroup = document.createElement('div');
+          newFormGroup.className = 'mb-3';
+
+          const lineBreak = document.createElement('br');
+
+          const nameLabel = document.createElement('label');
+          nameLabel.className = 'form-label';
+          nameLabel.textContent = 'Name';
+
+          const nameInput = document.createElement('input');
+          nameInput.type = 'text';
+          nameInput.className = 'form-control';
+          nameInput.name = 'name';
+
+          const emailLabel = document.createElement('label');
+          emailLabel.className = 'form-label';
+          emailLabel.textContent = 'Email';
+
+          const emailInput = document.createElement('input');
+          emailInput.type = 'email';
+          emailInput.className = 'form-control';
+          emailInput.name = 'email';
+
+          const phoneLabel = document.createElement('label');
+          phoneLabel.className = 'form-label';
+          phoneLabel.textContent = 'Phone';
+
+          const phoneInput = document.createElement('input');
+          phoneInput.type = 'text';
+          phoneInput.className = 'form-control';
+          phoneInput.name = 'phone';
+
+          const addressLabel = document.createElement('label');
+          addressLabel.className = 'form-label';
+          addressLabel.textContent = 'Address';
+
+          const addressInput = document.createElement('input');
+          addressInput.type = 'text';
+          addressInput.className = 'form-control';
+          addressInput.name = 'address';
+
+          newFormGroup.appendChild(lineBreak);
+          newFormGroup.appendChild(nameLabel);
+          newFormGroup.appendChild(nameInput);
+          newFormGroup.appendChild(emailLabel);
+          newFormGroup.appendChild(emailInput);
+          newFormGroup.appendChild(phoneLabel);
+          newFormGroup.appendChild(phoneInput);
+          newFormGroup.appendChild(addressLabel);
+          newFormGroup.appendChild(addressInput);
+
+          formGroupContainer.appendChild(newFormGroup);
+        });
+      });
+    </script>
   </body>
 </html>
