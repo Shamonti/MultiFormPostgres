@@ -2,10 +2,9 @@ from django.db import models
 
 # Create your models here.
 class FormData(models.Model):
-  name = models.CharField(max_length=100),
-  phone = models.CharField(max_length = 20),
-  email = models.EmailField(),
-  address = models.TextField()
-
-class Meta:
-  db_table = "Persons"
+  name = models.CharField(max_length = 100, default='')
+  phone = models.IntegerField(blank=True, null=True)
+  email = models.CharField(max_length = 100, default='')
+  address = models.CharField(max_length=255, default='')  
+  class Meta:
+        db_table="Persons"

@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from multi_form.views import render_form
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', render_form, name= "render_form"),
+    # path('submit/', submit_form, name= "submit_form"),
 ]
