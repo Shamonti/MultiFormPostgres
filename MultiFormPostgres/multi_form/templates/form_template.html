@@ -62,7 +62,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <script>
+    <!-- <script>
       document.addEventListener('DOMContentLoaded', function () {
         const addButton = document.getElementById('add-form-group');
         const formGroupContainer = document.getElementById(
@@ -123,6 +123,53 @@
 
           formGroupContainer.appendChild(newFormGroup);
         });
+      });
+    </script> -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const addButton = document.getElementById('add-form-group');
+        const formGroupContainer = document.getElementById(
+          'form-group-container'
+        );
+        let formIndex = 1;
+
+        addButton.addEventListener('click', function () {
+          formIndex++;
+
+          const newFormGroup = document.createElement('div');
+          newFormGroup.className = 'mb-3';
+
+          const nameInput = createInput('name', formIndex);
+          const emailInput = createInput('email', formIndex);
+          const phoneInput = createInput('phone', formIndex);
+          const addressInput = createInput('address', formIndex);
+
+          newFormGroup.appendChild(nameInput.label);
+          newFormGroup.appendChild(nameInput.input);
+          newFormGroup.appendChild(emailInput.label);
+          newFormGroup.appendChild(emailInput.input);
+          newFormGroup.appendChild(phoneInput.label);
+          newFormGroup.appendChild(phoneInput.input);
+          newFormGroup.appendChild(addressInput.label);
+          newFormGroup.appendChild(addressInput.input);
+
+          formGroupContainer.appendChild(newFormGroup);
+        });
+
+        function createInput(type, index) {
+          const label = document.createElement('label');
+          label.className = 'form-label';
+          label.setAttribute('for', `${type}_${index}`);
+          label.textContent = type.charAt(0).toUpperCase() + type.slice(1);
+
+          const input = document.createElement('input');
+          input.type = type;
+          input.className = 'form-control';
+          input.id = `${type}_${index}`;
+          input.name = `${type}_${index}`;
+
+          return { label, input };
+        }
       });
     </script>
   </body>
