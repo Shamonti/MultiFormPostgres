@@ -21,24 +21,34 @@
         {% csrf_token %}
         <div class="form-group pt-5" id="form-group-container">
           <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="name" class="form-control" id="name" name="name" />
+            <label for="name_1" class="form-label">Name</label>
+            <input type="name" class="form-control" id="name_1" name="name_1" />
           </div>
           <div class="mb-3">
-            <label for="email" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="email" name="email" />
+            <label for="email_1" class="form-label">Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email_1"
+              name="email_1"
+            />
           </div>
           <div class="mb-3">
-            <label for="phone" class="form-label">Phone</label>
-            <input type="phone" class="form-control" id="phone" name="phone" />
+            <label for="phone_1" class="form-label">Phone</label>
+            <input
+              type="phone"
+              class="form-control"
+              id="phone_1"
+              name="phone_1"
+            />
           </div>
           <div class="mb-3">
-            <label for="address" class="form-label">Address</label>
+            <label for="address_1" class="form-label">Address</label>
             <input
               type="address"
               class="form-control"
-              id="address"
-              name="address"
+              id="address_1"
+              name="address_1"
             />
           </div>
         </div>
@@ -131,6 +141,7 @@
         const formGroupContainer = document.getElementById(
           'form-group-container'
         );
+        const lineBreak = document.createElement('br');
         let formIndex = 1;
 
         addButton.addEventListener('click', function () {
@@ -144,6 +155,7 @@
           const phoneInput = createInput('phone', formIndex);
           const addressInput = createInput('address', formIndex);
 
+          newFormGroup.appendChild(lineBreak);
           newFormGroup.appendChild(nameInput.label);
           newFormGroup.appendChild(nameInput.input);
           newFormGroup.appendChild(emailInput.label);
